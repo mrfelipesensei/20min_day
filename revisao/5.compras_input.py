@@ -16,20 +16,40 @@ while True:
 
     if escolha == "1":
         #Pedir nome
+        item = input("Digite o nome do item: ").strip().lower()
+        
         #Pedir quantidade
+        quantidade = int(input("Digite a quantidade: "))
+
         #Adicionar ao dicionário
+        lista_compras[item] = quantidade
+        print(f"{item} adicionado à lista de compras com a quantidade {quantidade}.")
+
     elif escolha == "2":
         #Pedir nome do item
+        item = input("Digite o nome do item a ser removido: ").strip().lower()
+
         #Remover do dicionário (se existir)
+        del lista_compras[item]
+        print(f"{item} removido da lista de compras")
+
     elif escolha == "3":
         #Pedir nome do item
+        item = input("Digite o nome do item a ser atualizado: ").strip().lower()
+        
         #Pedir nova quantidade
+        nova_quantidade = int(input(f"Digite a nova quantidade do item {item}:"))
+
         #Atualizar no dicionário (se existir)
+        lista_compras[item] = nova_quantidade
+        print(f"{item} atualizado com a nova quantidade: {nova_quantidade}")
+
     elif escolha == "4":
         print(lista_compras)
+
     elif escolha == "5":
         print("Saindo do programa. Até mais!")
         break
 
-else:
-    print("Opção inválida, tente novamente")
+    else:
+        print("Opção inválida, tente novamente")
