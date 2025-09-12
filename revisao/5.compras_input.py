@@ -5,7 +5,7 @@ lista_compras ={}
 while True:
 
     #Menu de opções
-    print("1 - Adiciona item")
+    print("1 - Adicionar item")
     print("2 - Remover item")
     print("3 - Alterar quantidade")
     print("4 - Ver lista")
@@ -27,7 +27,7 @@ while True:
                 if quantidade <= 0:
                     print("Por favor, digite um valor maior que zero!")
             except ValueError:
-                print("Entrada inválida, Por favor, digite um número inteiro")
+                print("Entrada inválida. Por favor, digite um número inteiro!")
 
         #Adicionar ao dicionário   
         lista_compras[item] = quantidade
@@ -41,7 +41,7 @@ while True:
         if item in lista_compras:
             #Remover do dicionário (se existir)
             del lista_compras[item]
-            print(f"{item} removido da lista de compras")
+            print(f"{item} removido da lista de compras.")
         else:
             print(f"{item} não está cadastrado na lista de compras.")
 
@@ -51,17 +51,22 @@ while True:
 
         #Tratamento de erros
         if item in lista_compras:
-            #Pedir nova quantidade
-            nova_quantidade = int(input(f"Digite a nova quantidade do item {item}: "))
-            #Tratamento de erros
-            if nova_quantidade > 0:
             
-                #Atualizar no dicionário (se existir)
-                lista_compras[item] = nova_quantidade
-                print(f"{item} atualizado com a nova quantidade: {nova_quantidade}")
+            #Loop para garantir uma nova quantidade válida
+            nova_quantidade = 0
+            while nova_quantidade <= 0:
+                try:
+                    #Pedir nova quantidade
+                    nova_quantidade = int(input(f"Digite a nova quantidade do item {item}: "))
+                    if nova_quantidade <= 0:
+                        print("Por favor, digite um valor maior que zero!")
+                except ValueError:
+                    print("Entrada inválida. Por favor, digite um número inteiro!")
+            
+            #Adicionar ao dicionário   
+            lista_compras[item] = nova_quantidade
+            print(f"{item} adicionado à lista de compras com a quantidade {nova_quantidade}.")
 
-            else:
-                print(f"Digite um valor maior que zero!")  
         else:
             print(f"{item} não cadastrado na lista de compras.")
 
@@ -74,4 +79,4 @@ while True:
         break
 
     else:
-        print("Opção inválida, tente novamente")
+        print("Opção inválida, tente novamente.")
