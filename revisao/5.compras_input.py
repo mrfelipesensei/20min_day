@@ -33,27 +33,35 @@ while True:
         #Pedir nome do item
         item = input("Digite o nome do item a ser removido: ").strip().lower()
 
-        #Remover do dicionário (se existir)
-        del lista_compras[item]
-        print(f"{item} removido da lista de compras")
+        #Tratamento de erros
+        if item in lista_compras:
+            #Remover do dicionário (se existir)
+            del lista_compras[item]
+            print(f"{item} removido da lista de compras")
+        else:
+            print(f"{item} não está cadastrado na lista de compras.")
 
     elif escolha == "3":
         #Pedir nome do item
         item = input("Digite o nome do item a ser atualizado: ").strip().lower()
-        
-        #Pedir nova quantidade
-        nova_quantidade = int(input(f"Digite a nova quantidade do item {item}: "))
 
         #Tratamento de erros
-        if nova_quantidade > 0:
-           
-            #Atualizar no dicionário (se existir)
-            lista_compras[item] = nova_quantidade
-            print(f"{item} atualizado com a nova quantidade: {nova_quantidade}")
+        if item in lista_compras:
+            #Pedir nova quantidade
+            nova_quantidade = int(input(f"Digite a nova quantidade do item {item}: "))
+            #Tratamento de erros
+            if nova_quantidade > 0:
+            
+                #Atualizar no dicionário (se existir)
+                lista_compras[item] = nova_quantidade
+                print(f"{item} atualizado com a nova quantidade: {nova_quantidade}")
 
+            else:
+                print(f"Digite um valor maior que zero!")  
         else:
-            print(f"Digite um valor maior que zero!")              
+            print(f"{item} não cadastrado na lista de compras.")
 
+                    
     elif escolha == "4":
         print(lista_compras)
 
