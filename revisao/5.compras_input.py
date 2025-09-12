@@ -21,9 +21,13 @@ while True:
         #Pedir quantidade
         quantidade = int(input("Digite a quantidade: "))
 
-        #Adicionar ao dicionário
-        lista_compras[item] = quantidade
-        print(f"{item} adicionado à lista de compras com a quantidade {quantidade}.")
+        #Tratamento de erros
+        if quantidade > 0:
+            #Adicionar ao dicionário
+            lista_compras[item] = quantidade
+            print(f"{item} adicionado à lista de compras com a quantidade {quantidade}.")
+        else:
+            print(f"Digite um valor maior que zero!")
 
     elif escolha == "2":
         #Pedir nome do item
@@ -38,11 +42,17 @@ while True:
         item = input("Digite o nome do item a ser atualizado: ").strip().lower()
         
         #Pedir nova quantidade
-        nova_quantidade = int(input(f"Digite a nova quantidade do item {item}:"))
+        nova_quantidade = int(input(f"Digite a nova quantidade do item {item}: "))
 
-        #Atualizar no dicionário (se existir)
-        lista_compras[item] = nova_quantidade
-        print(f"{item} atualizado com a nova quantidade: {nova_quantidade}")
+        #Tratamento de erros
+        if nova_quantidade > 0:
+           
+            #Atualizar no dicionário (se existir)
+            lista_compras[item] = nova_quantidade
+            print(f"{item} atualizado com a nova quantidade: {nova_quantidade}")
+
+        else:
+            print(f"Digite um valor maior que zero!")              
 
     elif escolha == "4":
         print(lista_compras)
