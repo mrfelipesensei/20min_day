@@ -18,16 +18,20 @@ while True:
         #Pedir nome
         item = input("Digite o nome do item: ").strip().lower()
         
-        #Pedir quantidade
-        quantidade = int(input("Digite a quantidade: "))
+        #Loop para garantir uma quantidade válida
+        quantidade = 0
+        while quantidade <= 0:
+            try:
+                #Pedir quantidade
+                quantidade = int(input("Digite a quantidade: "))
+                if quantidade <= 0:
+                    print("Por favor, digite um valor maior que zero!")
+            except ValueError:
+                print("Entrada inválida, Por favor, digite um número inteiro")
 
-        #Tratamento de erros
-        if quantidade > 0:
-            #Adicionar ao dicionário
-            lista_compras[item] = quantidade
-            print(f"{item} adicionado à lista de compras com a quantidade {quantidade}.")
-        else:
-            print(f"Digite um valor maior que zero!")
+        #Adicionar ao dicionário   
+        lista_compras[item] = quantidade
+        print(f"{item} adicionado à lista de compras com a quantidade {quantidade}.")
 
     elif escolha == "2":
         #Pedir nome do item
