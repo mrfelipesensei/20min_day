@@ -19,6 +19,14 @@ def cadastrar_tarefa():
     else:
         print("Opção inválida, tente novamente.")
 
+def mostrar_tarefas():
+    print("\n--- TAREFAS CADASTRADAS ---")
+    if not tarefas_dia:
+        print("Nenhuma tarefa cadastrada no momento.")
+    else:
+        for nome, dados, in tarefas_dia.items():
+            prioridade = dados[0]
+            print(f"Tarefa: {nome} | Prioridade: {prioridade}")
 
 #Criando o dicionário de tarefas vazio
 tarefas_dia = {}
@@ -35,14 +43,14 @@ while True:
     if escolha == "1":
         cadastrar_tarefa()
         
-    elif escolha == "2":
+    #elif escolha == "2":
         #Lógica de alterar prioridade da tarefa
         
-    elif escolha == "3":
+    #elif escolha == "3":
         
 
     elif escolha == "4":
-        #Mostrar tarefas cadastradas
+        mostrar_tarefas()
         
     elif escolha == "5":
         print("Saindo do programa. Até mais!")
