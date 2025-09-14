@@ -86,7 +86,22 @@ while True:
                     print(f"O curso de {nome} foi atualizada para {curso_valido}")
                 
             elif escolha2 == "2":
-                print("TESTE2")
+                nova_idade = 0
+                while nova_idade <= 0:
+                    try:
+                        #Pedir nova idade
+                        nova_idade = int(input(f"Digite a nova idade de {nome}: "))
+                        if nova_idade <= 0:
+                            print("Por favor, digite um valor maior que zero!")
+                        elif nova_idade < 18:
+                            print("O aluno não pode ser menor de idade!")
+                    except ValueError:
+                        print("Entrada inválida. Por favor, digie um número inteiro!")
+
+                    curso_antigo = alunos_cadastrados[nome][0] #Pega o curso, que está no índice 0 para não perder/alterar o dado
+                    alunos_cadastrados[nome] = (curso_antigo, nova_idade)
+                    print(f"A idade de {nome} foi atualizada para {nova_idade}.")
+
             elif escolha2 == "3":
                 break
             else:
