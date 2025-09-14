@@ -57,7 +57,34 @@ while True:
 
             escolha2 = input()
             if escolha2 == "1":
-                print("TESTE1")
+                #Lógica de novo curso
+                curso_valido = None
+                while True: 
+                    #1. Pedir novo curso, informa como sair
+                    novo_curso = input(f"Digite o novo curso para o aluno {nome}: ")
+                    print("Ou digite 'sair' para cancelar.")
+
+                    #2. Verifica se o usuário quer sair
+                    if novo_curso.strip().lower() == 'sair':
+                        print("Operação cancelada pelo usuário.")
+                        break
+
+                    #3. Verifica se a entrada é válida (não está em branco)
+                    if novo_curso.strip():
+                        curso_valido = novo_curso.strip() #Armazena o valor
+                        print(f"Curso '{curso_valido}' alterado com sucesso.")
+                        break #Quebra o loop dada a entrada válida
+
+                    else:
+                        print("Entrada inválida. Por favor, digite um nome de curso válido!")
+
+                    
+                #Adicionar ao dicionário somente se um curso válido for inserido
+                if curso_valido:
+                    idade_antiga = alunos_cadastrados[nome][1] #Pega a idade, que está no ínice 1 para não perder/alterar o dado
+                    alunos_cadastrados[nome] = (curso_valido, idade_antiga)
+                    print(f"O curso de {nome} foi atualizada para {curso_valido}")
+                
             elif escolha2 == "2":
                 print("TESTE2")
             elif escolha2 == "3":
