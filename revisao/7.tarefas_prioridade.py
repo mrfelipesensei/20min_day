@@ -1,3 +1,25 @@
+def cadastrar_tarefa():
+    nome = input("Digite o nome da Tarefa: ").strip()
+    print(f"\n Defina a Prioridade de {nome}:")
+    print("1 - Alta")
+    print("2 - Média")
+    print("3 - Baixa")
+
+    prioridade = input("Digite sua opção: ")
+
+    if prioridade == "1":
+        prioridade = "Alta"
+        tarefas_dia[nome] = prioridade
+    elif prioridade == "2":
+        prioridade = "Média"
+        tarefas_dia[nome] = prioridade
+    elif prioridade == "3":
+        prioridade == "Baixa"
+        tarefas_dia[nome] = prioridade
+    else:
+        print("Opção inválida, tente novamente.")
+
+
 #Criando o dicionário de tarefas vazio
 tarefas_dia = {}
 
@@ -11,17 +33,17 @@ while True:
     escolha = input("Digite sua opção: ")
 
     if escolha == "1":
-        #Lógica da cadastro de tarefas
-    
+        cadastrar_tarefa()
+        
     elif escolha == "2":
         #Lógica de alterar prioridade da tarefa
-
+        
     elif escolha == "3":
-        #Deletar tarefa cadastrada
+        
 
     elif escolha == "4":
         #Mostrar tarefas cadastradas
-
+        
     elif escolha == "5":
         print("Saindo do programa. Até mais!")
         break
