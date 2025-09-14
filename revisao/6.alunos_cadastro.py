@@ -53,8 +53,18 @@ while True:
         if nome in alunos_cadastrados:
             print("1 - Para alterar o curso: ")
             print("2 - Para alterar a idade: ")
+            print("3 - Voltar ao Menu Inicial.")
 
-            #Aqui será desenvolvida a lógica para cada caso
+            escolha2 = input()
+            if escolha2 == "1":
+                print("TESTE1")
+            elif escolha2 == "2":
+                print("TESTE2")
+            elif escolha2 == "3":
+                break
+            else:
+                print("Opção inválida, tente novamente.")
+                
 
         else:
             print(f"{nome} não cadastrado dentre os alunos.")
