@@ -55,7 +55,7 @@ while True:
             print("2 - Para alterar a idade: ")
             print("3 - Voltar ao Menu Inicial.")
 
-            escolha2 = input()
+            escolha2 = input("Digite sua opção: ")
             if escolha2 == "1":
                 #Lógica de novo curso
                 curso_valido = None
@@ -72,7 +72,6 @@ while True:
                     #3. Verifica se a entrada é válida (não está em branco)
                     if novo_curso.strip():
                         curso_valido = novo_curso.strip() #Armazena o valor
-                        print(f"Curso '{curso_valido}' alterado com sucesso.")
                         break #Quebra o loop dada a entrada válida
 
                     else:
@@ -113,8 +112,16 @@ while True:
 
 
     elif escolha == "4":
-        print(alunos_cadastrados)
-
+        print("\n--- ALUNOS CADASTRADOS ---")
+        #Melhoria - exibição mais legível
+        if not alunos_cadastrados:
+            print("Nenhum aluno cadastrado no momento.")
+        else:
+            for nome, dados in alunos_cadastrados.items():
+                curso = dados[0]
+                idade = dados[1]
+                print(f"Nome: {nome} | Curso: {curso} | Idade: {idade}")
+        
     elif escolha == "5":
         print("Saindo do programa. Até mais!")
         break
