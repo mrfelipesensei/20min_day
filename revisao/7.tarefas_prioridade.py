@@ -54,8 +54,20 @@ def mostrar_tarefas():
         print("Nenhuma tarefa cadastrada no momento.")
     else:
         for nome, dados, in tarefas_dia.items():
-            prioridade = dados[0]
-            print(f"Tarefa: {nome} | Prioridade: {prioridade}")
+            prioridade_letra = dados[0] #Pega somente a letra da prioridade (A, M, etc.)
+            prioridade_texto = ""
+
+            #Verifica qual é  letra a atribui o texto correspondente
+            if prioridade_letra.upper() == "A":
+                prioridade_texto = "Alta"
+            elif prioridade_letra.upper() == "M":
+                prioridade_texto = "Média"
+            elif prioridade_letra.upper() == "B":
+                prioridade_texto = "Baixa"
+            else:
+                prioridade_texto = "Não definida"
+
+            print(f"Tarefa: {nome} | Prioridade: {prioridade_texto}")
 
 #Criando o dicionário de tarefas vazio
 tarefas_dia = {}
