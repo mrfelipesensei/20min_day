@@ -1,3 +1,35 @@
+def cadastrar_aluno():
+    #Pedir nome do aluno
+    nome = input("Digite o nome do aluno: ").strip()
+
+    curso = input(f"Digite o curso do aluno {nome}: ")
+
+    #Loop para garantir idade válida
+    idade = 0
+    while idade <= 0:
+        try:
+            #Pedir idade
+            idade = int(input(f"Digite a idade de {nome}: "))
+            if idade <= 0:
+                print("Por favor, digite um valor maior que zero!")
+            elif idade < 18:    
+                print("O aluno não pode ser menor de idade!")
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número inteiro!")
+
+        #Adicionar ao dicionário
+        alunos_cadastrados[nome] = curso, idade
+        print(f"{nome} adicionado com sucesso aos alunos cadastrados.")
+
+def remover_aluno():
+    #Pedir nome do aluno
+    nome = input("Digite o nome do aluno que deseja remover: ")
+
+    if nome in alunos_cadastrados:
+        #Remover do dicionário, se ele existir
+        del alunos_cadastrados[nome]
+        print(f"{nome} foi removido dos alunos cadastrados.")
+
 #Criando dicionário inicial vazio
 alunos_cadastrados = {}
 
@@ -15,36 +47,10 @@ while True:
     escolha = input("Digite sua opção: ")
 
     if escolha == "1":
-        #Pedir nome do aluno
-        nome = input("Digite o nome do aluno: ").strip()
-
-        curso = input(f"Digite o curso do aluno {nome}: ")
-
-        #Loop para garantir idade válida
-        idade = 0
-        while idade <= 0:
-            try:
-                #Pedir idade
-                idade = int(input(f"Digite a idade de {nome}: "))
-                if idade <= 0:
-                    print("Por favor, digite um valor maior que zero!")
-                elif idade < 18:    
-                    print("O aluno não pode ser menor de idade!")
-            except ValueError:
-                print("Entrada inválida. Por favor, digite um número inteiro!")
-
-            #Adicionar ao dicionário
-            alunos_cadastrados[nome] = curso, idade
-            print(f"{nome} adicionado com sucesso aos alunos cadastrados.")
+        cadastrar_aluno()
         
     elif escolha == "2":
-        #Pedir nome do aluno
-        nome = input("Digite o nome do aluno que deseja remover: ")
-
-        if nome in alunos_cadastrados:
-            #Remover do dicionário, se ele existir
-            del alunos_cadastrados[nome]
-            print(f"{nome} foi removido dos alunos cadastrados.")
+        remover_aluno()
 
     elif escolha == "3":
         #Pedir nome do aluno
