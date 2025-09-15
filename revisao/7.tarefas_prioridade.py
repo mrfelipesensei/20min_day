@@ -1,6 +1,6 @@
 def cadastrar_tarefa():
     nome = input("Digite o nome da Tarefa: ").strip()
-    print(f"\n Defina a Prioridade de {nome}:")
+    print(f"\nDefina a Prioridade de {nome}:")
     print("1 - Alta")
     print("2 - Média")
     print("3 - Baixa")
@@ -18,6 +18,15 @@ def cadastrar_tarefa():
         tarefas_dia[nome] = prioridade
     else:
         print("Opção inválida, tente novamente.")
+
+def remover_tarefa():
+    nome = input("Digite o nome da Tarefa a ser removida: ")
+
+    if nome in tarefas_dia:
+        del tarefas_dia[nome]
+        print(f"A Tarefa {nome} foi removida com sucesso.")
+    else:
+        print(f"Tarefa {nome} ainda não foi cadastrada.")
 
 def mostrar_tarefas():
     print("\n--- TAREFAS CADASTRADAS ---")
@@ -48,13 +57,7 @@ while True:
         #Lógica de alterar prioridade da tarefa
         
     elif escolha == "3":
-        nome = input("Digite o nome da Tarefa a ser removida: ")
-
-        if nome in tarefas_dia:
-            del tarefas_dia[nome]
-            print(f"A Tarefa {nome} foi removida com sucesso.")
-        else:
-            print(f"Tarefa {nome} ainda não foi cadastrada.")
+        remover_tarefa()
 
     elif escolha == "4":
         mostrar_tarefas()
