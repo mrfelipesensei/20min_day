@@ -33,10 +33,11 @@ tarefas_dia = {}
 
 #Enquanto o programa não for encerrado
 while True:
-    print("1 - Cadastrar Tarefa")
+    print("\n1 - Cadastrar Tarefa")
     print("2 - Alterar Prioridade")
     print("3 - Remover Tarefa")
     print("4 - Visualizar tarefas")
+    print("5 - Sair do programa.")
 
     escolha = input("Digite sua opção: ")
 
@@ -46,8 +47,14 @@ while True:
     #elif escolha == "2":
         #Lógica de alterar prioridade da tarefa
         
-    #elif escolha == "3":
-        
+    elif escolha == "3":
+        nome = input("Digite o nome da Tarefa a ser removida: ")
+
+        if nome in tarefas_dia:
+            del tarefas_dia[nome]
+            print(f"A Tarefa {nome} foi removida com sucesso.")
+        else:
+            print(f"Tarefa {nome} ainda não foi cadastrada.")
 
     elif escolha == "4":
         mostrar_tarefas()
