@@ -11,6 +11,7 @@ def adicionar_despesa():
 
 def listar_despesas():
     print("\n--- LISTA DE DESPESAS ---")
+    gasto_total = 0
 
     if not despesas:
         print("Nenhuma despesa cadastrada no momento.")
@@ -18,19 +19,25 @@ def listar_despesas():
         for nome, dados in despesas.items():
             valor = dados[0]
             categoria = dados[1]
-            print(f"Nome: {nome} | Valor: {valor:.2f} | Categoria {categoria}")
+            print(f"Nome: {nome} | Valor R$: {valor:.2f} | Categoria: {categoria}")
+            gasto_total += valor
+
+        print(f"Total gsto: R$ {gasto_total:.2f}")
 
 def filtrar_despesas():
     categoria_desejada = input("Digite o nome da categoria que deseja filtrar: ")
+    gasto_categoria = 0
 
     print(f"\n---Despesas na categoria {categoria_desejada} ---")
     for nome, dados in despesas.items():
         valor = dados[0]
         categoria = dados[1]
         if categoria.lower() == categoria_desejada.lower():
-            print(f"Categoria: {categoria} | Valor: {valor:.2f} | Nome: {nome}")
+            print(f"Categoria: {categoria} | Valor R$: {valor:.2f} | Nome: {nome}")
+            gasto_categoria += valor
         
-
+    print(f"Gasto total da categoria {categoria_desejada} R$: {gasto_categoria:.2f} ")
+        
 
 despesas = {}
 
