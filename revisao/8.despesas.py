@@ -22,7 +22,15 @@ def listar_despesas():
             print(f"Nome: {nome} | Valor R$: {valor:.2f} | Categoria: {categoria}")
             gasto_total += valor
 
-        print(f"Total gsto: R$ {gasto_total:.2f}")
+        print(f"Total gasto: R$ {gasto_total:.2f}")
+
+def gasto_total():
+    valor_total = 0
+    for nome, dados in despesas.items():
+        valor = dados[0]
+        valor_total += valor
+
+    print(f"O gasto total das despesas foi de R$: {valor_total:.2f}")
 
 def filtrar_despesas():
     categoria_desejada = input("Digite o nome da categoria que deseja filtrar: ")
@@ -59,7 +67,10 @@ while True:
 
     elif escolha == "3":
         filtrar_despesas()
-
+    
+    elif escolha == "5":
+        gasto_total()
+        
     elif escolha == "6":
         print("Saindo do programa. Até mais!")
         break
