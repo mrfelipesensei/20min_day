@@ -46,6 +46,30 @@ def filtrar_despesas():
         
     print(f"Gasto total da categoria {categoria_desejada} R$: {gasto_categoria:.2f} ")
         
+def alterar_dados():
+    nome = input("Digite a despesa a ser alterada: ")
+
+    if nome in despesas:
+        print("1 - Alterar o valor")
+        print("2 - Alterar a categoria")
+        print("3 - Voltar ao Menu Inicial")
+
+        escolha2 = input("Digite sua opção: ")
+
+        if escolha2 == "1":
+            novo_valor = 0
+            while novo_valor <= 0:
+                try:
+                    novo_valor = float(input(f"Digite o novo valor de {nome}: "))
+                    if novo_valor <= 0:
+                        print("Por favor, digite um valor maior que zero!")
+                except ValueError:
+                    print("Entrada inválida. Por favor digite um número!")
+
+                #CORRIGIR ERRO DE LISTAR_DADOS()
+                categoria_antiga = despesas[nome][1]
+                despesas[nome] = (novo_valor, categoria_antiga)
+                print(f"A despesa {nome} teve seu valor atualizado para {novo_valor:.2f}")
 
 despesas = {}
 
@@ -68,6 +92,9 @@ while True:
     elif escolha == "3":
         filtrar_despesas()
     
+    elif escolha == "4":
+        alterar_dados()
+
     elif escolha == "5":
         gasto_total()
         
