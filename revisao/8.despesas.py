@@ -1,3 +1,10 @@
+import json
+
+def salvar_despesas():
+    with open("despesas.json","w",encoding="utf-8") as arquivo:
+        json.dump(despesas, arquivo, indent=4, ensure_ascii=False)
+
+
 def adicionar_despesa():
     nome = input("Digite o nome da despesa: ").strip()
 
@@ -101,7 +108,8 @@ while True:
     print("3 - Filtrar por categoria")
     print("4 - Alterar dados") #Colocar lógica de remover despesa dentro de alterar dados
     print("5 - Calcular total gasto")
-    print("6 - Sair")
+    print("6 - Salvar despesas")
+    print("7 - Sair")
 
     escolha = input("Digite sua opção: ")
 
@@ -119,8 +127,12 @@ while True:
 
     elif escolha == "5":
         gasto_total()
-        
+
     elif escolha == "6":
+        salvar_despesas()
+        print("Despesas salvas no arquivo despesas.json")
+        
+    elif escolha == "7":
         print("Saindo do programa. Até mais!")
         break
 
