@@ -52,7 +52,8 @@ def alterar_dados():
     if nome in despesas:
         print("1 - Alterar o valor")
         print("2 - Alterar a categoria")
-        print("3 - Voltar ao Menu Inicial")
+        print("3 - Remover despesa")
+        print("4 - Voltar ao Menu Inicial")
 
         escolha2 = input("Digite sua opção: ")
 
@@ -87,6 +88,11 @@ def alterar_dados():
                 despesas[nome] = (valor_antigo, nova_categoria)
                 print(f"A  despesa {nome} teve sua categoria atualizada para {nova_categoria}.")
 
+        elif escolha2 == "3":
+            del despesas[nome]
+            print(f"{nome} foi removida das despesas.")
+
+            
 despesas = {}
 
 while True:
