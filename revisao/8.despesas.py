@@ -66,10 +66,26 @@ def alterar_dados():
                 except ValueError:
                     print("Entrada inválida. Por favor digite um número!")
 
-                #CORRIGIR ERRO DE LISTAR_DADOS()
                 categoria_antiga = despesas[nome][1]
                 despesas[nome] = (novo_valor, categoria_antiga)
-                print(f"A despesa {nome} teve seu valor atualizado para {novo_valor:.2f}")
+                print(f"A despesa {nome} teve seu valor atualizado para R$ {novo_valor:.2f}")
+
+        elif escolha2 == "2":
+            categoria_valida = None
+            while True:
+                nova_categoria = input(f"Digite a nova categoria de {nome}: ")
+
+                if nova_categoria.strip():
+                    categoria_valida = nova_categoria.strip()
+                    break
+            
+                else:
+                    print(f"Entrada inválida. Por favor, digite a nova categoria de {nome}!")
+
+            if categoria_valida:
+                valor_antigo = despesas[nome][0]
+                despesas[nome] = (valor_antigo, nova_categoria)
+                print(f"A  despesa {nome} teve sua categoria atualizada para {nova_categoria}.")
 
 despesas = {}
 
@@ -81,7 +97,7 @@ while True:
     print("5 - Calcular total gasto")
     print("6 - Sair")
 
-    escolha = input()
+    escolha = input("Digite sua opção: ")
 
     if escolha == "1":
         adicionar_despesa()
