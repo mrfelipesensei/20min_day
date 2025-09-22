@@ -31,10 +31,32 @@ def listar_itens():
 
             print(f"Nome: {nome} | Valor Unitário: R$ {valor:.2f} | Quantidade: {quantidade} | Valor Total:  R$ {valor_calc_item:.2f} | Categoria: {categoria}")
             
-            valor_total_estoque += valor
+            valor_total_estoque += valor * quantidade
 
         #Valor total de TODOS os itens do estoque
         print(f"Valor Total do Estoque: R$ {valor_total_estoque:.2f}")
+
+
+def filtrar_itens():
+    categoria_desejada = input("Digite a Categoria desejada: ")
+    valor_categoria = 0
+
+    print(f"\n--- Itens na Categoria de {categoria_desejada}")
+    for nome, dados in estoque.items():
+        valor = dados[0]
+        quantidade = dados[1]
+        categoria = dados[2]
+
+        #Cálculo do valor indexado pela quantidade
+        valor_calc_item = valor * quantidade
+
+        if categoria.lower() == categoria_desejada.lower():
+            print(f"Nome: {nome} | Valor Uniário: R$ {valor} | Quantidade {quantidade} | Valor Total: R$ {valor_calc_item:.2f}")
+            valor_categoria += valor * quantidade
+
+    print(f"Valor Total da Categoria {categoria_desejada}: R$ {valor_categoria:.2f}")
+
+        
 
 
 while True:
