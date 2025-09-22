@@ -14,6 +14,27 @@ def adicionar_item():
     estoque[nome] = valor, quantidade, categoria
     print(f"{nome} adicionado com sucesso.")
 
+def listar_itens():
+    print("\n--- CONTROLE DE ESTOQUE ---")
+    valor_total_estoque = 0
+
+    if not estoque:
+        print("Nenhum item cadastrado no momento.")
+    else:
+        for nome, dados in estoque.items():
+            valor = dados[0]
+            quantidade = dados[1]
+            categoria = dados[2]
+
+            #Cálculo do valor indexado pela quantidade
+            valor_calc_item = valor * quantidade
+
+            print(f"Nome: {nome} | Valor Unitário: R$ {valor:.2f} | Quantidade: {quantidade} | Valor Total:  R$ {valor_calc_item:.2f} | Categoria: {categoria}")
+            
+            valor_total_estoque += valor
+
+        #Valor total de TODOS os itens do estoque
+        print(f"Valor Total do Estoque: R$ {valor_total_estoque:.2f}")
 
 
 while True:
