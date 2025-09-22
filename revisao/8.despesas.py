@@ -1,4 +1,17 @@
 import json
+import os # Boa prática de verificação de arquivos
+
+def carregar_despesas():
+    #Verifica se o arquivo existe e não está vazio
+    if os.path.exists("despesas.json") and os.path.getsize("despesas.json") > 0:
+        try:
+            with open("despesas.json", "r", encoding="utf-8") as arquivo:
+                return json.load(arquivo)
+        except json.JSONDecodeError:
+            #Se o arquivo estiver corrompido ou mal formatado, começa do zero
+            return {}
+        
+    return {}
 
 def salvar_despesas():
     with open("despesas.json","w",encoding="utf-8") as arquivo:
@@ -99,8 +112,8 @@ def alterar_dados():
             del despesas[nome]
             print(f"{nome} foi removida das despesas.")
 
-            
-despesas = {}
+#Carrega as despesas do arquivo ao iniciar o programa            
+despesas = carregar_despesas()
 
 while True:
     print("\n1 - Adicionar despesa")
@@ -133,7 +146,10 @@ while True:
         print("Despesas salvas no arquivo despesas.json")
         
     elif escolha == "7":
-        print("Saindo do programa. Até mais!")
+        #Boa prática - salvar antes de sair
+        salvar_despesas()
+        print("Despesas salvas")
+        print("\nSaindo do programa. Até mais!")
         break
 
     else:

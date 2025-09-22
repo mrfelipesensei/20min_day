@@ -2,5 +2,9 @@
     "Pizza": [
         80.0,
         "Alimentação"
+    ],
+    "Jantar": [
+        25.0,
+        "Alimentação"
     ]
 }
