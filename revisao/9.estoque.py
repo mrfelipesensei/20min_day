@@ -98,7 +98,20 @@ def alterar_dados():
                 estoque[nome] = (novo_valor, quantidade_antiga, categoria_antiga)
                 print(f"O Item {nome} teve seu valor unitário atualizado para: R$ {novo_valor:.2f}")
 
-        
+        elif escolha2 == "2":
+            nova_quantidade = 0
+            while nova_quantidade <= 0:
+                try:
+                    nova_quantidade = int(input(f"Digite a nova quantidade de {nome}: "))
+                    if nova_quantidade <= 0:
+                        print("Por favor, digite um valor maior que zero!")
+                except ValueError:
+                    print("Entrada inválida. Por favor digite um número inteiro!")
+            
+                valor_antigo = estoque[nome][0]
+                categoria_antiga = estoque[nome][2]
+                estoque[nome] = (valor_antigo, nova_quantidade, categoria_antiga)
+                print(f"O Item {nome} teve sua quantidade alterada para {nova_quantidade}")
         
 while True:
     print("\n--- CONTROLE DE ESTOQUE ---")
