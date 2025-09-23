@@ -113,6 +113,26 @@ def alterar_dados():
                 estoque[nome] = (valor_antigo, nova_quantidade, categoria_antiga)
                 print(f"O Item {nome} teve sua quantidade alterada para {nova_quantidade}")
         
+        elif escolha2 == "3":
+            categoria_valida = None
+            while True:
+                nova_categoria = input(f"Digite a nova categoria de {nome}: ")
+
+                if nova_categoria.strip():
+                    categoria_valida = nova_categoria.strip()
+                    break
+
+                else:
+                    print(f"Entrada inválida. Por favor, digite a nova categoria de {nome}!")
+
+                
+            if categoria_valida:
+                valor_antigo = estoque[nome][0]
+                quantidade_antiga = estoque[nome][1]
+                estoque[nome] = (valor_antigo, quantidade_antiga, nova_categoria)
+                print(f"O Item {nome} teve sua categoria alterada para {nova_categoria}")
+                    
+
 while True:
     print("\n--- CONTROLE DE ESTOQUE ---")
     print("1 - Adicionar Item")
