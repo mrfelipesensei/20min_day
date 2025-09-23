@@ -112,6 +112,16 @@ def alterar_dados():
             del despesas[nome]
             print(f"{nome} foi removida das despesas.")
 
+        elif escolha2 == "4":
+            print("Voltando ao Menu Inicial...")
+            return
+
+        else:
+            print("Opção inválida. Tente novamente.")
+    
+    elif nome not in despesas:
+        print(f"Despesa {nome} não cadastrada.")
+
 #Carrega as despesas do arquivo ao iniciar o programa            
 despesas = carregar_despesas()
 
