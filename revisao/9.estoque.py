@@ -71,6 +71,35 @@ def valor_total():
 
         print(f"Valor total do Estoque: R$ {valor_total_estoque:.2f}")
 
+def alterar_dados():
+    nome = input("Digite o Item a ser Alterado: ")
+
+    if nome in estoque:
+        print("1 - Alterar Valor")
+        print("2 - Alterar Quantidade")
+        print("3 - Alterar Categoria")
+        print("4 - Deletar Item")
+        print("5 - Voltar ao Menu Inicial")
+
+        escolha2 = input("Digite sua opção: ")
+
+        if escolha2 == "1":
+            novo_valor = 0
+            while novo_valor <= 0:
+                try:
+                    novo_valor = float(input(f"Digite o novo valor de {nome} R$: "))
+                    if novo_valor <= 0:
+                        print("Por favor, digite um valor maior que zero!")
+                except ValueError:
+                    print("Entrada inválida. Por favor digite um número!")
+
+                quantidade_antiga = estoque[nome][1]
+                categoria_antiga = estoque[nome][2]
+                estoque[nome] = (novo_valor, quantidade_antiga, categoria_antiga)
+                print(f"O Item {nome} teve seu valor unitário atualizado para: R$ {novo_valor:.2f}")
+
+        
+        
 while True:
     print("\n--- CONTROLE DE ESTOQUE ---")
     print("1 - Adicionar Item")
