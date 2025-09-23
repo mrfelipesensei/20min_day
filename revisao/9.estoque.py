@@ -56,8 +56,20 @@ def filtrar_itens():
 
     print(f"Valor Total da Categoria {categoria_desejada}: R$ {valor_categoria:.2f}")
 
-        
+def valor_total():
+    print("\n--- VALOR TOTAL DO ESTOQUE ---")
+    valor_total_estoque = 0
 
+    if not estoque:
+        print("Nenhum item cadastrado no momento.")
+    else:
+        for nome, dados in estoque.items():
+            valor = dados[0]
+            quantidade = dados[1]
+
+            valor_total_estoque += valor * quantidade
+
+        print(f"Valor total do Estoque: R$ {valor_total_estoque:.2f}")
 
 while True:
     print("\n--- CONTROLE DE ESTOQUE ---")
