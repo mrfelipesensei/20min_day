@@ -1,5 +1,20 @@
-#Carregando dicionário inicial vazio
-estoque = {}
+import json
+import os
+
+def carregar_dados():
+    if os.path.exists("estoque.json") and os.path.getsize("estoque.json") > 0:
+        try:
+            with open("estoque.json", "r", encoding="utf-8") as arquivo:
+                return json.load(arquivo)
+        except json.JSONDecodeError:
+            return {}
+        
+    return {}
+
+def salvar_dados():
+    with open("estoque.json","w",encoding="utf-8") as arquivo:
+        json.dump(estoque, arquivo, indent=4, ensure_ascii=False)
+
 
 def adicionar_item():
     nome = input("Digite o nome do item: ").strip()
@@ -146,6 +161,7 @@ def alterar_dados():
     elif nome not in estoque:
         print(f"Item {nome} não cadastrado no Estoque. ")
 
+estoque = carregar_dados()
 
 while True:
     print("\n--- CONTROLE DE ESTOQUE ---")
@@ -160,7 +176,7 @@ while True:
     escolha = input("Digite sua opção: ")
 
     if escolha == "1":
-        adicionar_item()
+        adicionar_item() #Fazer tratamento de erros para quantidade
     elif escolha == "2":
         listar_itens()
     elif escolha == "3":
@@ -173,6 +189,8 @@ while True:
         salvar_dados()
         print("Controle de Estoque salvo no arquivo lista_compras.json")
     elif escolha == "7":
+        salvar_dados()
+        print("Estoque Salvo.")
         print("\nSaindo do programa. Até mais!")
         break
     else:
