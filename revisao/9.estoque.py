@@ -131,7 +131,21 @@ def alterar_dados():
                 quantidade_antiga = estoque[nome][1]
                 estoque[nome] = (valor_antigo, quantidade_antiga, nova_categoria)
                 print(f"O Item {nome} teve sua categoria alterada para {nova_categoria}")
-                    
+            
+        elif escolha2 == "4":
+            del estoque[nome]
+            print(f"{nome} foi Deletado do Estoque. ")
+        
+        elif escolha2 == "5":
+            print("Voltando ao Menu Inicial...")
+            return
+        
+        else:
+            print("Opção inválida. Tente novamente.")
+    
+    elif nome not in estoque:
+        print(f"Item {nome} não cadastrado no Estoque. ")
+
 
 while True:
     print("\n--- CONTROLE DE ESTOQUE ---")
