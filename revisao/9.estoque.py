@@ -17,13 +17,43 @@ def salvar_dados():
 
 
 def adicionar_item():
-    nome = input("Digite o nome do item: ").strip()
 
-    valor = float(input(f"Digite o valor de {nome} R$: "))
+    while True: #CORRIGIR
+        nome = input("Digite o nome do item: ").strip()
 
-    quantidade = int(input(f"Digite a quantidade: "))
+        if not nome:
+            print("ERRO - O nome não pode estar em branco.")
+        else:
+            break
 
-    categoria = input(f"Digite a categoria de {nome}: ")
+    while True:
+        try:
+            valor = float(input(f"Digite o valor de {nome} R$: "))
+            if valor > 0:
+                break
+            else:
+                print("ERRO - Valor inválido, digite um valor maior que zero!")
+        except ValueError:
+            print("ERRO - Por favor, digite um número.")
+
+
+    while True:
+        try:
+            quantidade = int(input(f"Digite a quantidade: "))
+            if quantidade > 0:
+                break
+            else:
+                print("ERRO - Valor inválido, digite um número maior que zero!")
+        except ValueError:
+            print("ERRO - Por favor, digite um número inteiro.")
+
+    while True: #CORRIGIR 
+        categoria = input(f"Digite a categoria de {nome}: ")
+
+        if not categoria:
+            print("ERRO - O nome não pode estar em branco")
+        else:
+            break
 
     #Adicionar ao dicionário
     estoque[nome] = valor, quantidade, categoria
@@ -176,7 +206,7 @@ while True:
     escolha = input("Digite sua opção: ")
 
     if escolha == "1":
-        adicionar_item() #Fazer tratamento de erros para quantidade
+        adicionar_item() 
     elif escolha == "2":
         listar_itens()
     elif escolha == "3":
