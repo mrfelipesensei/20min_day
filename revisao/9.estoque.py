@@ -18,13 +18,25 @@ def salvar_dados():
 
 def adicionar_item():
 
-    while True: #CORRIGIR
+    while True: 
         nome = input("Digite o nome do item: ").strip()
 
         if not nome:
             print("ERRO - O nome não pode estar em branco.")
-        else:
-            break
+            continue
+            
+        '''if len(nome) < 4:
+            print("ERRO - O nome deve ter pelo menos 4 caracteres.")
+            continue'''
+
+        #Validação de conteúdo (apenas letras e espaços)
+        if not all(c.isalpha() or c.isspace() for c in nome):
+            print("ERRO - O nome deve contecer apenas letras e espaços.")
+            continue
+
+        #Se todas as validações passaram, saia do loop
+        break
+
 
     while True:
         try:
