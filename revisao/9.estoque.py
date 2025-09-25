@@ -31,7 +31,7 @@ def adicionar_item():
 
         #Validação de conteúdo (apenas letras e espaços)
         if not all(c.isalpha() or c.isspace() for c in nome):
-            print("ERRO - O nome deve contecer apenas letras e espaços.")
+            print("ERRO - O nome deve conter apenas letras e espaços.")
             continue
 
         #Se todas as validações passaram, saia do loop
@@ -63,10 +63,16 @@ def adicionar_item():
         categoria = input(f"Digite a categoria de {nome}: ")
 
         if not categoria:
-            print("ERRO - O nome não pode estar em branco")
-        else:
-            break
+            print("ERRO - A categoria não pode estar em branco.")
+            continue
 
+        if not all(c.isalpha() or c.isspace() for c in categoria):
+            print("ERRO - A categoria deve conter apenas letras e espaços.")
+            continue
+
+        break
+
+            
     #Adicionar ao dicionário
     estoque[nome] = valor, quantidade, categoria
     print(f"{nome} adicionado com sucesso.")
