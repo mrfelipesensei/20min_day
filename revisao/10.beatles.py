@@ -65,24 +65,25 @@ def adicionar_disco():
 
             if not titulo:
                 print("ERRO - O título não pode estar em branco.")
-                continue
+            else:
+                break
            
+        while True:
             vocais = input(f"\nDigite os vocais principais de {titulo}: ").strip()
 
             if not vocais:
                 print("ERRO - Os vocais principais não podem estar em branco.")
-                continue
-
             elif not all(c.isalpha() or c.isspace() for c in vocais):
                 print("ERRO - Os vocais devem conter apenas letras e espaços.")
-                continue
+            else:
+                break
 
-            #Se passou nas validações anteriores -> adiciona a música
-            musicas.append({
-                "titulo": titulo,
-                "vocais" : vocais
-            })
-            break #Próxima música
+
+        #Se passou nas validações anteriores -> adiciona a música
+        musicas.append({
+            "titulo": titulo,
+            "vocais" : vocais
+        })
 
     
     discos[nome] = entrada, gravadora, musicas
