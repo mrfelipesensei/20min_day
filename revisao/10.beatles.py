@@ -12,11 +12,11 @@ def adicionar_disco():
             print("ERRO - O nome não pode estar em branco.")
             continue
 
-        if not all(c.isalpha() or c.isspace() for c in nome):
+        elif not all(c.isalpha() or c.isspace() for c in nome):
             print("ERRO - O nome deve conter apenas letras e espaços.")
             continue
-
-        break
+        else:
+            break
 
     while True:
 
@@ -38,36 +38,42 @@ def adicionar_disco():
             print("ERRO - A Gravadora não pode estar em branco.")
             continue
 
-        if not all(c.isalpha() or c.isspace() for c in gravadora):
+        elif not all(c.isalpha() or c.isspace() for c in gravadora):
             print("ERRO - A Gravadora deve conter apenas letras e espaços.")
             continue
-
-        break
-
-    musicas = []
+        
+        else:
+            break
 
     while True:
-        titulo = input("Digite o título da música: ").strip()
+        try:
+            num_mus = int(input("Quantas músicas o disco possui? "))
+            if num_mus > 0:
+                break
+            else:
+                print("ERRO - O número de músicas deve ser maior que zero.")
 
-        if not titulo:
-            print("ERRO - O título não pode estar em branco.")
-            continue
+        except ValueError:
+            print("ERRO - Por favor, digite um número válido.")
 
-        if not all(c.isalpha() or c.isspace() for c in titulo):
-            print("ERRO - O título deve conter apenas letras e espaços.")
-            continue
+    musicas = []
+    print("\n--- Digite o título das músicas ---")
 
-        musicas.append({"titulo":titulo})
+    for i in range(num_mus):
+        while True:
+            titulo = input(f"Digite o título da Música {i + 1}: ").strip()
 
-        continuar = input("Deseja adicionar outra música? (s/n): ").strip().lower()
-        if continuar == "n":
-            break
-        else:
-            continue
+            if not titulo:
+                print("ERRO - O título não pode estar em branco.")
+            elif not all(c.isalpha() or c.isspace() for c in titulo): #Corrigir essa validação
+                print("ERRO - O título deve conter apenas letras, números e espaços.")
+            else:
+                musicas.append({"titulo":titulo})
+                break #Próxima música
 
     
     discos[nome] = entrada, gravadora, musicas
-    print(f"{nome} adicionado com sucesso.")
+    print(f"\n Disco {nome} adicionado com sucesso.")
     
 
 while True:
