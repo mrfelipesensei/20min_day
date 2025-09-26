@@ -65,16 +65,36 @@ def adicionar_disco():
 
             if not titulo:
                 print("ERRO - O título não pode estar em branco.")
-            elif not all(c.isalpha() or c.isspace() for c in titulo): #Corrigir essa validação
-                print("ERRO - O título deve conter apenas letras, números e espaços.")
-            else:
-                musicas.append({"titulo":titulo})
-                break #Próxima música
+                continue
+           
+            vocais = input(f"\nDigite os vocais principais de {titulo}: ").strip()
+
+            if not vocais:
+                print("ERRO - Os vocais principais não podem estar em branco.")
+                continue
+
+            elif not all(c.isalpha() or c.isspace() for c in vocais):
+                print("ERRO - Os vocais devem conter apenas letras e espaços.")
+                continue
+
+            #Se passou nas validações anteriores -> adiciona a música
+            musicas.append({
+                "titulo": titulo,
+                "vocais" : vocais
+            })
+            break #Próxima música
 
     
     discos[nome] = entrada, gravadora, musicas
     print(f"\n Disco {nome} adicionado com sucesso.")
     
+
+def listar_discos() : print("Futura Implementação")
+def buscar_por_ano() : print("Futura Implementação")
+def buscar_por_musica() : print("Futura Implementação")
+def buscar_por_vocal() : print("Futura Implementação")
+def alterar_dados() : print("Futura Implementação")
+def salvar_dados() : print("Futura Implementação")
 
 while True:
     print("\n--- DISCOGRAFIA BEATLES ---")
@@ -82,9 +102,10 @@ while True:
     print("2 - Listar Discos")
     print("3 - Buscar por Ano")
     print("4 - Buscar por Música")
-    print("5 - Alterar Dados")
-    print("6 - Salvar Dados")
-    print("7 - Sair")
+    print("5 - Buscar por Vocal")
+    print("6 - Alterar Dados")
+    print("7 - Salvar Dados")
+    print("8 - Sair")
 
     escolha = input("Digite sua opção: ")
 
@@ -97,11 +118,13 @@ while True:
     elif escolha == "4":
         buscar_por_musica()
     elif escolha == "5":
-        alterar_dados()
+        buscar_por_vocal()
     elif escolha == "6":
+        alterar_dados()
+    elif escolha == "7":
         salvar_dados()
         print("Dados Salvos em beatles.json")
-    elif escolha == "7":
+    elif escolha == "8":
         salvar_dados()
         print("Dados Salvos em beatles.json")
         print("\nSaindo do programa. Até mais!")
