@@ -101,8 +101,13 @@ def listar_discos():
             gravadora = dados[1]
             musicas = dados[2]
 
-            print(f"{nome} | {entrada} | {gravadora} | {musicas}")
+            print(f"\n🎵 Disco: {nome}")
+            print(f"  📅 Lançamento: {entrada}")
+            print(f"  💿 Gravadora: {gravadora}")
+            print("  🎶 Músicas:")
 
+            for i, musica in enumerate(musicas, start=1):
+                print(f"        {i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
 
 
 def buscar_por_ano() : print("Futura Implementação")
