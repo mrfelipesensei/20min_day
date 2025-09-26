@@ -90,7 +90,21 @@ def adicionar_disco():
     print(f"\n Disco {nome} adicionado com sucesso.")
     
 
-def listar_discos() : print("Futura Implementação")
+def listar_discos():
+    print("\n--- DISCOGRAFIA DOS BEATLES ---")
+
+    if not discos:
+        print("Nenhum disco cadastrado no momento.")
+    else:
+        for nome, dados in discos.items():
+            entrada = dados[0]
+            gravadora = dados[1]
+            musicas = dados[2]
+
+            print(f"{nome} | {entrada} | {gravadora} | {musicas}")
+
+
+
 def buscar_por_ano() : print("Futura Implementação")
 def buscar_por_musica() : print("Futura Implementação")
 def buscar_por_vocal() : print("Futura Implementação")
