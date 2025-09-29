@@ -111,7 +111,15 @@ def listar_discos():
 
 
 def buscar_por_ano():
-    ano_desejado = input("Digite o ano que deseja buscar: ")
+    ano_desejado = input("Digite o ano que deseja buscar: ").strip()
+
+    #Verifica se o usuário digitou apenas números
+    if not ano_desejado.isdigit():
+        print("ERRO - Digite apenas números para o ano (ex: 1963).")
+        return
+
+
+    encontrado = False #Flag para verificar se algum disco foi encontrado
 
     print(f"\n--- Discos no ano {ano_desejado} ---")
     for nome, dados in discos.items():
@@ -119,7 +127,17 @@ def buscar_por_ano():
         gravadora = dados[1]
         musicas = dados[2]
 
-        if entrada == ano_desejado:
+        try:
+            data = datetime.strptime(entrada, "%d/%m/%Y")
+            ano_disco = str(data.year)
+        except ValueError:
+            #Caso algum disco tenha sido salvo com a data inválida
+            continue
+
+
+        #Compara apenas o ano
+        if ano_disco == ano_desejado:
+            encontrado = True  #Flag dizendo que foi encontrado
             print(f"\n🎵 Disco: {nome}")
             print(f"  📅 Lançamento: {entrada}")
             print(f"  💿 Gravadora: {gravadora}")
@@ -128,11 +146,8 @@ def buscar_por_ano():
             for i, musica in enumerate(musicas, start=1):
                 print(f"        {i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
 
-
-        #Implementar tratamento de erros para busca por ano inexistente
-        #Implementar busca somente do dado 'ano' inserido em datetime
-
-
+    if not encontrado:
+        print(f"Nenhum disco encontrado no ano {ano_desejado}.")
 
 
 
