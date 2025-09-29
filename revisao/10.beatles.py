@@ -110,7 +110,32 @@ def listar_discos():
                 print(f"        {i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
 
 
-def buscar_por_ano() : print("Futura Implementação")
+def buscar_por_ano():
+    ano_desejado = input("Digite o ano que deseja buscar: ")
+
+    print(f"\n--- Discos no ano {ano_desejado} ---")
+    for nome, dados in discos.items():
+        entrada = dados[0]
+        gravadora = dados[1]
+        musicas = dados[2]
+
+        if entrada == ano_desejado:
+            print(f"\n🎵 Disco: {nome}")
+            print(f"  📅 Lançamento: {entrada}")
+            print(f"  💿 Gravadora: {gravadora}")
+            print("  🎶 Músicas:")
+
+            for i, musica in enumerate(musicas, start=1):
+                print(f"        {i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
+
+
+        #Implementar tratamento de erros para busca por ano inexistente
+        #Implementar busca somente do dado 'ano' inserido em datetime
+
+
+
+
+
 def buscar_por_musica() : print("Futura Implementação")
 def buscar_por_vocal() : print("Futura Implementação")
 def alterar_dados() : print("Futura Implementação")
