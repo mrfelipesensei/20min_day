@@ -56,16 +56,22 @@ def filtrar_despesas():
     categoria_desejada = input("Digite o nome da categoria que deseja filtrar: ")
     gasto_categoria = 0
 
+    encontrado = False
+
     print(f"\n---Despesas na categoria {categoria_desejada} ---")
     for nome, dados in despesas.items():
         valor = dados[0]
         categoria = dados[1]
         if categoria.lower() == categoria_desejada.lower():
+            encontrado = True
             print(f"Categoria: {categoria} | Valor R$: {valor:.2f} | Nome: {nome}")
             gasto_categoria += valor
         
     print(f"Gasto total da categoria {categoria_desejada} R$: {gasto_categoria:.2f} ")
         
+    if not encontrado:
+        print(f"Nenhuma despesa encontrada na categoria {categoria_desejada}")
+    
 def alterar_dados():
     nome = input("Digite a despesa a ser alterada: ")
 

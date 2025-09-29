@@ -104,6 +104,8 @@ def filtrar_itens():
     categoria_desejada = input("Digite a Categoria desejada: ")
     valor_categoria = 0
 
+    encontrado = False
+
     print(f"\n--- Itens na Categoria de {categoria_desejada}")
     for nome, dados in estoque.items():
         valor = dados[0]
@@ -114,10 +116,15 @@ def filtrar_itens():
         valor_calc_item = valor * quantidade
 
         if categoria.lower() == categoria_desejada.lower():
+            encontrado = True
             print(f"Nome: {nome} | Valor Uniário: R$ {valor} | Quantidade {quantidade} | Valor Total: R$ {valor_calc_item:.2f}")
             valor_categoria += valor * quantidade
 
     print(f"Valor Total da Categoria {categoria_desejada}: R$ {valor_categoria:.2f}")
+
+    if not encontrado:
+        print(f"Nenhum item encontrado na categoria {categoria_desejada}")
+
 
 def valor_total():
     print("\n--- VALOR TOTAL DO ESTOQUE ---")
