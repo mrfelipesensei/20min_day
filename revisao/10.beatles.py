@@ -150,8 +150,35 @@ def buscar_por_ano():
         print(f"Nenhum disco encontrado no ano {ano_desejado}.")
 
 
+def buscar_por_musica():
+    musica_desejada = input("Digite o título da música que deseja buscar: ").strip()
 
-def buscar_por_musica() : print("Futura Implementação")
+    if not musica_desejada:
+        print("ERRO - O titulo da música não pode estar em branco.")
+        return
+    
+    encontrado = False
+
+    print(f"\n--- Discos com a música {musica_desejada} ---")
+    for nome, dados, in discos.items():
+        entrada = dados[0]
+        gravadora = dados[1]
+        musicas = dados[2]
+
+        for i, musica in enumerate(musicas,start=1):
+            #Busca parcial (case-sensitive)
+            if musica_desejada.lower() in musica["titulo"].lower():
+                if not encontrado:
+                    encontrado = True
+                print(f"\n🎵 Disco: {nome}")
+                print(f"  📅 Lançamento: {entrada}")
+                print(f"  💿 Gravadora: {gravadora}")
+                print(f"  🎶 Música encontrada: {musica['titulo']} - (Vocais: {musica['vocais']})")
+    
+    if not encontrado:
+        print(f"Nenhuma música encontrada com o título {musica_desejada}.")
+
+
 def buscar_por_vocal() : print("Futura Implementação")
 def alterar_dados() : print("Futura Implementação")
 def salvar_dados() : print("Futura Implementação")
