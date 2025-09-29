@@ -189,10 +189,9 @@ while True:
     print("2 - Listar Discos")
     print("3 - Buscar por Ano")
     print("4 - Buscar por Música")
-    print("5 - Buscar por Vocal")
-    print("6 - Alterar Dados")
-    print("7 - Salvar Dados")
-    print("8 - Sair")
+    print("5 - Alterar Dados")
+    print("6 - Salvar Dados")
+    print("7 - Sair")
 
     escolha = input("Digite sua opção: ")
 
@@ -205,13 +204,11 @@ while True:
     elif escolha == "4":
         buscar_por_musica()
     elif escolha == "5":
-        buscar_por_vocal()
-    elif escolha == "6":
         alterar_dados()
-    elif escolha == "7":
+    elif escolha == "6":
         salvar_dados()
         print("Dados Salvos em beatles.json")
-    elif escolha == "8":
+    elif escolha == "7":
         salvar_dados()
         print("Dados Salvos em beatles.json")
         print("\nSaindo do programa. Até mais!")
