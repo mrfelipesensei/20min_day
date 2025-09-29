@@ -179,7 +179,35 @@ def buscar_por_musica():
         print(f"Nenhuma música encontrada com o título {musica_desejada}.")
 
 
-def buscar_por_vocal() : print("Futura Implementação")
+def buscar_por_gravadora():
+    gravadora_desejada = input("Digite a Gravadora que deseja buscar: ")
+
+    if not gravadora_desejada:
+        print("ERRO - O nome da gravadora não pode estar em branco.")
+        return
+
+    encontrado = False
+
+    print(f"\n--- Discos da Gravadora {gravadora_desejada} ---")
+    for nome, dados in discos.items():
+        entrada = dados[0]
+        gravadora = dados[1]
+        musicas = dados[2]
+
+        if gravadora_desejada.lower() == gravadora.lower():
+            encontrado = True
+            print(f"\n🎵 Disco: {nome}")
+            print(f"  📅 Lançamento: {entrada}")
+            print(f"  💿 Gravadora: {gravadora}")
+            print("  🎶 Músicas:")
+
+            for i, musica in enumerate(musicas, start=1):
+                print(f"        {i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
+
+    if not encontrado:
+        print(f"Nenhum disco encontrado com a Gravadora {gravadora_desejada}.")
+
+
 def alterar_dados() : print("Futura Implementação")
 def salvar_dados() : print("Futura Implementação")
 
@@ -189,9 +217,10 @@ while True:
     print("2 - Listar Discos")
     print("3 - Buscar por Ano")
     print("4 - Buscar por Música")
-    print("5 - Alterar Dados")
-    print("6 - Salvar Dados")
-    print("7 - Sair")
+    print("5 - Buscar por Gravadora")
+    print("6 - Alterar Dados")
+    print("7 - Salvar Dados")
+    print("8 - Sair")
 
     escolha = input("Digite sua opção: ")
 
@@ -204,11 +233,13 @@ while True:
     elif escolha == "4":
         buscar_por_musica()
     elif escolha == "5":
-        alterar_dados()
+        buscar_por_gravadora()
     elif escolha == "6":
+        alterar_dados()
+    elif escolha == "7":
         salvar_dados()
         print("Dados Salvos em beatles.json")
-    elif escolha == "7":
+    elif escolha == "8":
         salvar_dados()
         print("Dados Salvos em beatles.json")
         print("\nSaindo do programa. Até mais!")
