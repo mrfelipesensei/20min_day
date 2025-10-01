@@ -1,0 +1,60 @@
+{
+    "Sgt Peppers Lonely Hearts Club Band": [
+        "01/06/1967",
+        "Capitol",
+        [
+            {
+                "titulo": "Sgt Peppers Lonely Hearts Club Band",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "With a Little Help from My Friends",
+                "vocais": "Starr"
+            },
+            {
+                "titulo": "Lucy in the Sky with Diamonds",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Getting Better",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "Fixing a Hole",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "She's Leaving Home",
+                "vocais": "McCartney Lennon"
+            },
+            {
+                "titulo": "Being for the Benefit of Mr. Kite!",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Within You Without You",
+                "vocais": "Harrison"
+            },
+            {
+                "titulo": "When I'm Sixty-Four",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "Lovely Rita",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "Good Morning Good Morning",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Sgt Peppers Lonely Hearts Club Band (Reprise)",
+                "vocais": "Lennon McCartney Harrison Starr"
+            },
+            {
+                "titulo": "A Day in the Life",
+                "vocais": "Lennon McCartney"
+            }
+        ]
+    ]
+}

@@ -101,6 +101,7 @@ def adicionar_disco():
 
     
     discos[nome] = entrada, gravadora, musicas
+    salvar_dados() #Salva os dados em 'beatles.json'
     print(f"\n Disco {nome} adicionado com sucesso.")
     
 
