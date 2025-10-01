@@ -92,6 +92,13 @@ def adicionar_disco():
             else:
                 break
 
+        #Aqui eu quero colocar uma lógica que verifica se o usuário tem certeza de que deseja cadastrar as informações
+        #Além de poder editar aqui mesmo uma possível informação errada chamando portanto as futuras funções:
+        #alterar_nome_disco()
+        #alterar_gravadora()
+        #alterar_data()
+        #alterar_nome_musica()
+        #alterar_vocais()
 
         #Se passou nas validações anteriores -> adiciona a música
         musicas.append({
@@ -224,7 +231,8 @@ def buscar_por_gravadora():
 
 
 def alterar_dados() : print("Futura Implementação")
-
+#Ao implementar a função acima será possível referenciar as funções das linhas 97 à 101?
+#Além do clássico menu implementado em 9.estoque.py
 
 while True:
     print("\n--- DISCOGRAFIA BEATLES ---")
