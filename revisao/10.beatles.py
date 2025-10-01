@@ -11,7 +11,11 @@ def carregar_dados():
             return {}
     return {}
 
-discos = {}
+def salvar_dados():
+    with open("beatles.json","w",encoding="utf-8") as arquivo:
+        json.dump(discos, arquivo, indent=4, ensure_ascii=False)
+
+discos = carregar_dados()
 
 def adicionar_disco():
 
@@ -219,7 +223,7 @@ def buscar_por_gravadora():
 
 
 def alterar_dados() : print("Futura Implementação")
-def salvar_dados() : print("Futura Implementação")
+
 
 while True:
     print("\n--- DISCOGRAFIA BEATLES ---")
