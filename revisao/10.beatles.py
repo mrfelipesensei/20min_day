@@ -1,5 +1,15 @@
 from datetime import datetime
+import json
+import os
 
+def carregar_dados():
+    if os.path.exists("beatles.json") and os.path.getsize("beatles.json") > 0:
+        try:
+            with open("beatles.json","r",encoding="utf-8") as arquivo:
+                return json.load(arquivo)
+        except json.JSONDecodeError:
+            return {}
+    return {}
 
 discos = {}
 
