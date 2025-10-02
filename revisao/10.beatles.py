@@ -230,9 +230,35 @@ def buscar_por_gravadora():
         print(f"Nenhum disco encontrado com a Gravadora {gravadora_desejada}.")
 
 
-def alterar_dados() : print("Futura Implementação")
-#Ao implementar a função acima será possível referenciar as funções das linhas 97 à 101?
-#Além do clássico menu implementado em 9.estoque.py
+def alterar_dados():
+    while True:
+        nome = input("Digite o Nome do Disco a ser Alterado: ")
+
+        if not nome:
+            print("ERRO - O nome não pode estar em branco.")
+            continue
+
+        elif not all(c.isalpha() or c.isspace() for c in nome):
+            print("ERRO - O nome deve conter apenas letras e espaços.")
+            continue
+        else:
+            break
+
+
+    if nome in discos:
+        print("1 - Alterar Data")
+        print("2 - Alterar Gravadora")
+        print("3 - Alterar Título de Música")
+        print("4 - Alterar Vocais Principais")
+        print("5 - Voltar ao Menu Inicial")
+
+        escolha2 = input("Digite sua opção: ")
+
+    elif nome not in discos:
+        print(f"Disco {nome} não encontrado na Discografia")
+
+
+
 
 while True:
     print("\n--- DISCOGRAFIA BEATLES ---")
