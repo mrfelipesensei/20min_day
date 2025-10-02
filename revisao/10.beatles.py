@@ -254,6 +254,21 @@ def alterar_dados():
 
         escolha2 = input("Digite sua opção: ")
 
+        if escolha2 == "1":
+            print("Futura Implementação.")
+        elif escolha2 == "2":
+            print("Futura Implementação.")
+        elif escolha2 == "3":
+            print("Futura Implementação.")
+        elif escolha2 == "4":
+            print("Futura Implementação.")
+        elif escolha2 == "5":
+            print("Voltando ao Menu Inicial...")
+            return
+        
+        else:
+            print("Opção inválida. Tente novamente.")
+
     elif nome not in discos:
         print(f"Disco {nome} não encontrado na Discografia")
 
