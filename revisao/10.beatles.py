@@ -229,6 +229,20 @@ def buscar_por_gravadora():
     if not encontrado:
         print(f"Nenhum disco encontrado com a Gravadora {gravadora_desejada}.")
 
+def alterar_data(nome):
+    while True:
+        nova_data = input("Digite a nova data (dd/mm/aaaa): ").strip()
+
+        try:
+            data = datetime.strptime(nova_data, "%d/%m/%Y")
+            discos[nome] = (nova_data, discos[nome][1], discos[nome][2])
+            salvar_dados()
+            print(f"Data do disco {nome} foi alterada para {nova_data}")
+            break
+        except ValueError:
+            print("Data inválida! Use o formato dd/mm/aaaa.")
+
+
 
 def alterar_dados():
     while True:
@@ -255,7 +269,7 @@ def alterar_dados():
         escolha2 = input("Digite sua opção: ")
 
         if escolha2 == "1":
-            print("Futura Implementação.")
+            alterar_data(nome)
         elif escolha2 == "2":
             print("Futura Implementação.")
         elif escolha2 == "3":
