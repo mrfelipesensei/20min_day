@@ -242,7 +242,23 @@ def alterar_data(nome):
         except ValueError:
             print("Data inválida! Use o formato dd/mm/aaaa.")
 
+def alterar_gravadora(nome):
+    while True:
+        nova_gravadora = input("Digite o nome da nova Gravadora: ")
 
+        if not nova_gravadora:
+            print("ERRO - A nova Gravadora não pode estar em branco.")
+            continue
+
+        elif not all(c.isalpha() or c.isspace() for c in nova_gravadora):
+            print("ERRO - A nova Gravadora deve conter apenas letras e espaços.")
+            continue
+
+        else:
+            discos[nome] = (discos[nome][0], nova_gravadora, discos[nome][2])
+            salvar_dados()
+            print(f"A gravadora do disco {nome} foi alterada para {nova_gravadora}")
+            break
 
 def alterar_dados():
     while True:
@@ -260,7 +276,7 @@ def alterar_dados():
 
 
     if nome in discos:
-        print("1 - Alterar Data")
+        print("\n1 - Alterar Data")
         print("2 - Alterar Gravadora")
         print("3 - Alterar Título de Música")
         print("4 - Alterar Vocais Principais")
@@ -271,7 +287,7 @@ def alterar_dados():
         if escolha2 == "1":
             alterar_data(nome)
         elif escolha2 == "2":
-            print("Futura Implementação.")
+            alterar_gravadora(nome)
         elif escolha2 == "3":
             print("Futura Implementação.")
         elif escolha2 == "4":
