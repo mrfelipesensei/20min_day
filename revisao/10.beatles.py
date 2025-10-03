@@ -294,7 +294,38 @@ def alterar_musica(nome):
     salvar_dados()
     print(f"Título da música alterada com sucesso para {novo_titulo}.")
 
+def alterar_vocais(nome):
+    musicas = discos[nome][2]
 
+    print(f"\n🎶 Músicas do disco {nome}:")
+    for i, musica in enumerate(musicas,start=1):
+        print(f"{i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
+    
+    while True:
+        try:
+            escolha = int(input("\nDigite o número da música que deseja alterar os vocais: "))
+            if 1 <= escolha <= len(musicas):
+                break
+            else:
+                print("Número inválido. Escolha um número da lista.")
+        except ValueError:
+            print("ERRO - Digite um número válido.")
+
+    indice = escolha - 1
+    musica_escolhida = musicas[indice]['titulo']
+
+    while True:
+        novos_vocais = input(f"Digite os novos vocais para a música {musica_escolhida}: ")
+
+        if not novos_vocais:
+            print("ERRO - O título não pode estar em branco.")
+        else:
+            break
+    
+    musicas[indice]['vocais'] = novos_vocais
+    discos[nome] = (discos[nome][0], discos[nome][1], musicas)
+    salvar_dados()
+    print(f"Vocais da música {musica_escolhida} alterados para {novos_vocais}.")
 
 def alterar_dados():
     while True:
@@ -317,7 +348,8 @@ def alterar_dados():
         print("2 - Alterar Gravadora")
         print("3 - Alterar Título de Música")
         print("4 - Alterar Vocais Principais")
-        print("5 - Voltar ao Menu Inicial")
+        print("5 - Deletar Disco")
+        print("6 - Voltar ao Menu Inicial")
 
         escolha2 = input("Digite sua opção: ")
 
@@ -328,8 +360,10 @@ def alterar_dados():
         elif escolha2 == "3":
             alterar_musica(nome)
         elif escolha2 == "4":
-            print("Futura Implementação.")
+            alterar_vocais(nome)
         elif escolha2 == "5":
+            print("Futura Implementação.")
+        elif escolha2 == "6":
             print("Voltando ao Menu Inicial...")
             return
         
