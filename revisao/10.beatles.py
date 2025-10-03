@@ -327,6 +327,18 @@ def alterar_vocais(nome):
     salvar_dados()
     print(f"Vocais da música {musica_escolhida} alterados para {novos_vocais}.")
 
+def deletar_disco(nome):
+    questao = input(f"\nVocê tem certeza que deseja deletar o Disco {nome}? (s/n): ")
+
+    if questao == "s":
+        del discos[nome]
+        print(f"{nome} foi deletado da Discografia com sucesso.")
+    elif questao == "n":
+        return
+    else:
+        print("Opção inválida, digite 's' para deletar e 'n' para voltar.")
+
+
 def alterar_dados():
     while True:
         nome = input("Digite o Nome do Disco a ser Alterado: ")
@@ -362,7 +374,7 @@ def alterar_dados():
         elif escolha2 == "4":
             alterar_vocais(nome)
         elif escolha2 == "5":
-            print("Futura Implementação.")
+            deletar_disco(nome)
         elif escolha2 == "6":
             print("Voltando ao Menu Inicial...")
             return
