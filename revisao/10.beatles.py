@@ -260,6 +260,42 @@ def alterar_gravadora(nome):
             print(f"A gravadora do disco {nome} foi alterada para {nova_gravadora}")
             break
 
+def alterar_musica(nome):
+    musicas = discos[nome][2]
+
+    print(f"\n🎶 Músicas do disco {nome}:")
+    for i, musica in enumerate(musicas, start=1):
+        print(f"{i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
+    
+    while True:
+        try:
+            escolha = int(input("\nDigite o número da música que deseja alterar: "))
+            if 1 <= escolha <= len(musicas):
+                break
+            else:
+                print("Número inválido. Escolha um número da lista.")
+        except ValueError:
+            print("ERRO - Digite um número válido.")
+    
+    #Lógica de acesso correto do número da música de acordo com o índice - se o usuário escolheu 3, o índice será 2
+    indice = escolha - 1 
+    musica_antiga = musicas[indice]['titulo']
+
+    while True:
+        novo_titulo = input(f"Digite o novo título para a música {musica_antiga}: ").strip()
+
+        if not novo_titulo:
+            print("ERRO - O título não pode estar em branco.")
+        else:
+            break
+
+    musicas[indice]['titulo'] = novo_titulo
+    discos[nome] = (discos[nome][0], discos[nome][1], musicas)
+    salvar_dados()
+    print(f"Título da música alterada com sucesso para {novo_titulo}.")
+
+
+
 def alterar_dados():
     while True:
         nome = input("Digite o Nome do Disco a ser Alterado: ")
@@ -276,7 +312,8 @@ def alterar_dados():
 
 
     if nome in discos:
-        print("\n1 - Alterar Data")
+        print("\n --- MENU DE ALTERAÇÕES ---")
+        print("1 - Alterar Data")
         print("2 - Alterar Gravadora")
         print("3 - Alterar Título de Música")
         print("4 - Alterar Vocais Principais")
@@ -289,7 +326,7 @@ def alterar_dados():
         elif escolha2 == "2":
             alterar_gravadora(nome)
         elif escolha2 == "3":
-            print("Futura Implementação.")
+            alterar_musica(nome)
         elif escolha2 == "4":
             print("Futura Implementação.")
         elif escolha2 == "5":
