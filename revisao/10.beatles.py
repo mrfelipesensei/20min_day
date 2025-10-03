@@ -117,8 +117,15 @@ def listar_discos():
 
     if not discos:
         print("Nenhum disco cadastrado no momento.")
-    else:
-        for nome, dados in discos.items():
+        return
+    
+    #Cria uma lista de tuplas (nome, dados) e ordena pela data convertida
+    discos_ordenados = sorted(
+        discos.items(),
+        key=lambda item: datetime.strptime(item[1][0], "%d/%m/%Y")
+    )
+
+    for nome, dados in discos_ordenados:
             entrada = dados[0]
             gravadora = dados[1]
             musicas = dados[2]
@@ -130,7 +137,7 @@ def listar_discos():
 
             for i, musica in enumerate(musicas, start=1):
                 print(f"        {i}. {musica['titulo']} - (Vocais: {musica['vocais']})")
-
+        
 
 def buscar_por_ano():
     ano_desejado = input("Digite o ano que deseja buscar: ").strip()

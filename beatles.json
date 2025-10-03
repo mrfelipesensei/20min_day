@@ -56,5 +56,67 @@
                 "vocais": "Lennon McCartney"
             }
         ]
+    ],
+    "Please Please Me": [
+        "22/03/1963",
+        "Parlophone",
+        [
+            {
+                "titulo": "I Saw Her Standing There",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "Misery",
+                "vocais": "Lennon McCartney"
+            },
+            {
+                "titulo": "Anna (Go to Him)",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Chains",
+                "vocais": "Harrison Lennon McCartney"
+            },
+            {
+                "titulo": "Boys",
+                "vocais": "Starr"
+            },
+            {
+                "titulo": "Ask Me Why",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Please Please Me",
+                "vocais": "Lennon McCartney"
+            },
+            {
+                "titulo": "Love Me Do",
+                "vocais": "Lennon McCartney"
+            },
+            {
+                "titulo": "P.S. I Love You",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "Baby It's You",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Do You Want to Know a Secret",
+                "vocais": "Harrison"
+            },
+            {
+                "titulo": "A Taste of Honey",
+                "vocais": "McCartney"
+            },
+            {
+                "titulo": "There's a Place",
+                "vocais": "Lennon"
+            },
+            {
+                "titulo": "Twist and Shout",
+                "vocais": "Lennon"
+            }
+        ]
     ]
 }
