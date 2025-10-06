@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 def pergunta_titulo():
 
     while True:
@@ -32,13 +35,32 @@ def pergunta_dev():
     
     return desenvolvedora
 
+def pergunta_data():
+
+    while True:
+        entrada = input("Digite a data de seu lançamento (dd/mm/aaaa): ")
+
+        try:
+            data = datetime.strptime(entrada, "%d/%m/%Y")
+            print("Data de lançamento válida: ", data.strftime("%d/%m/%Y"))
+            break
+        except ValueError:
+            print("Data inválida! Use o formato dd/mm/aaaa")
+            continue
+
+    return entrada
+
 def adicionar_jogo():
 
     titulo = pergunta_titulo()
 
     desenvolvedora = pergunta_dev()
 
+    data = pergunta_data()
+
     
+
+
 
 
 
