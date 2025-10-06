@@ -58,7 +58,37 @@ def adicionar_jogo():
 
     data = pergunta_data()
 
+    while True:
+        try:
+            num_plataformas = int(input("Em quantas plataformas o jogo está disponível? "))
+            if num_plataformas > 0:
+                break
+            else:
+                print("ERRO - O número de plataformas deve ser maior que zero.")
+
+        except ValueError:
+            print("ERRO - Por favor, digite um número inteiro válido.")
+
+    plataformas = []
     
+    for i in range(num_plataformas):
+        while True:
+            plataforma = input(f" Digite o nome da Plataforma {i + 1}: ").strip()
+
+            if not plataforma:
+                print("ERRO - A plataforma não pode estar em branco.")
+            elif not all(c.isalnum() or c.isspace() or c in "-" for c in plataforma):
+                #permite letras, números, espaços, hífens
+                print("ERRO - O nome da plataforma deve conter apenas letras, números, espaços, hífens")
+            else:
+                plataformas.append(plataforma)
+                break
+    
+    
+        
+
+
+        
 
 
 
