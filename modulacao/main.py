@@ -1,3 +1,5 @@
+from funcoes import adicionar_jogo
+
 while True:
     print("\n--- CATÁLOGO DE GAMES ---")
     print("1 - Adicionar Jogo")
@@ -12,7 +14,7 @@ while True:
     escolha = input("Digite sua opção: ")
 
     if escolha == "1":
-        print("Chama a função adicionar_jogo()")
+        adicionar_jogo()
     elif escolha == "2":
         print("Chama a função listar_jogos()")
     elif escolha == "3":
@@ -28,5 +30,6 @@ while True:
     elif escolha == "8":
         print("Salva os dados")
         print("\nSaindo do programa. Até mais!")
+        break
     else:
         print("Opção inválida, tente novamente.")
