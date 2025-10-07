@@ -1,5 +1,6 @@
 from datetime import datetime
 
+jogos = {}
 
 def pergunta_titulo():
 
@@ -81,17 +82,9 @@ def adicionar_jogo():
                 #permite letras, números, espaços, hífens
                 print("ERRO - O nome da plataforma deve conter apenas letras, números, espaços, hífens")
             else:
-                plataformas.append(plataforma)
                 break
     
-    
-        
+        plataformas.append(plataforma)
 
-
-        
-
-
-
-
-
-
+    jogos[titulo] = desenvolvedora, data, plataformas
+    print(f"\n Jogo {titulo} adicionado com sucesso.")
