@@ -95,13 +95,7 @@ def adicionar_jogo():
 
     print(f"\n Jogo {titulo} adicionado com sucesso.")
 
-def listar_jogos():
-    print("\n--- CATÁLOGO DE JOGOS ---")
-    
-    if not jogos:
-        print("Nenhum jogo catalogado no momento.")
-        return
-    
+def mostrar_lista():
     for titulo, dados in jogos.items():
         print(f"\n  🎮 Jogo: {titulo}")
         print(f"  🖥️  Desenvolvedora: {dados['desenvolvedora']}")
@@ -110,3 +104,29 @@ def listar_jogos():
         
         for i, plataforma in enumerate(dados["plataformas"], 1):
             print(f"        {i}. {plataforma}")
+
+
+def listar_jogos():
+    print("\n--- CATÁLOGO DE JOGOS ---")
+    
+    if not jogos:
+        print("Nenhum jogo catalogado no momento.")
+        return
+    
+    mostrar_lista()
+
+def buscar_por_titulo():
+    titulo_desejado = pergunta_titulo()
+
+    encontrado = False
+
+    print(f"\n--- Jogo {titulo_desejado} ---")
+
+    for titulo, dados in jogos.items():
+        if titulo_desejado.lower() == titulo.lower():
+            encontrado = True
+
+            mostrar_lista()
+    
+    if not encontrado:
+        print(f"Nenhum jogo encontrado com o título {titulo_desejado}.")
