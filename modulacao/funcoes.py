@@ -130,3 +130,19 @@ def buscar_por_titulo():
     
     if not encontrado:
         print(f"Nenhum jogo encontrado com o título {titulo_desejado}.")
+
+def buscar_por_dev():
+    desenvolvedora_desejada = pergunta_dev()
+
+    encontrado = False
+
+    print(f"\n--- Desenvolvedora {desenvolvedora_desejada} ---")
+
+    for titulo, dados in jogos.items():
+        if desenvolvedora_desejada.lower() == dados["desenvolvedora"].lower():
+            encontrado = True
+
+            mostrar_lista()
+    
+    if not encontrado:
+        print(f"Nenhuma desenvolvedora encontrada chamada {desenvolvedora_desejada}.")
