@@ -86,7 +86,13 @@ def adicionar_jogo():
     
         plataformas.append(plataforma)
 
-    jogos[titulo] = desenvolvedora, data, plataformas
+    #Guardar como dicionário - facilita manutenção
+    jogos[titulo] = {
+        "desenvolvedora" : desenvolvedora,
+        "data" : data,
+        "plataformas" : plataformas
+    }
+
     print(f"\n Jogo {titulo} adicionado com sucesso.")
 
 def listar_jogos():
@@ -97,14 +103,10 @@ def listar_jogos():
         return
     
     for titulo, dados in jogos.items():
-        desenvolvedora = dados[0]
-        data = dados[1]
-        plataformas = dados[2]
-
-        print(f"\n 🎮 Jogo: {titulo}")
-        print(f"  🖥️  Desenvolvedora: {desenvolvedora}")
-        print(f"  📅  Lançamento: {data}")
+        print(f"\n  🎮 Jogo: {titulo}")
+        print(f"  🖥️  Desenvolvedora: {dados['desenvolvedora']}")
+        print(f"  📅 Lançamento: {dados['data']}")
         print("  🕹️  Plataformas: ")
         
-        for i, plataforma in enumerate(plataformas, 1):
+        for i, plataforma in enumerate(dados["plataformas"], 1):
             print(f"        {i}. {plataforma}")
