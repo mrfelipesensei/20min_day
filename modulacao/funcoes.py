@@ -95,8 +95,11 @@ def adicionar_jogo():
 
     print(f"\n Jogo {titulo} adicionado com sucesso.")
 
-def mostrar_lista():
-    for titulo, dados in jogos.items():
+def mostrar_lista(jogos_para_mostrar=None):
+    if jogos_para_mostrar is None:
+        jogos_para_mostrar = jogos
+
+    for titulo, dados in jogos_para_mostrar.items():
         print(f"\n  🎮 Jogo: {titulo}")
         print(f"  🖥️  Desenvolvedora: {dados['desenvolvedora']}")
         print(f"  📅 Lançamento: {dados['data']}")
@@ -118,17 +121,18 @@ def listar_jogos():
 def buscar_por_titulo():
     titulo_desejado = pergunta_titulo()
 
-    encontrado = False
+    encontrados = {}
 
     print(f"\n--- Jogo {titulo_desejado} ---")
 
     for titulo, dados in jogos.items():
         if titulo_desejado.lower() == titulo.lower():
-            encontrado = True
-
-            mostrar_lista()
+            encontrados[titulo] = dados
     
-    if not encontrado:
+    if encontrados:
+        mostrar_lista(encontrados)
+
+    else:
         print(f"Nenhum jogo encontrado com o título {titulo_desejado}.")
 
 def buscar_por_dev():
@@ -167,8 +171,6 @@ def buscar_por_ano():
             encontrados[titulo] = dados
 
     if encontrados:
-        for titulo, dados in encontrados.items():
-            mostrar_lista()
-    
+        mostrar_lista(encontrados)
     else:
         print(f"Nenhum jogo encontrado para o ano de {ano_desejado}")
