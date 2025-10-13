@@ -146,3 +146,29 @@ def buscar_por_dev():
     
     if not encontrado:
         print(f"Nenhuma desenvolvedora encontrada chamada {desenvolvedora_desejada}.")
+
+
+def buscar_por_ano():
+    ano_desejado = input("Digite o ano que deseja buscar: ").strip()
+
+    encontrados = {}
+
+    print(f"\n--- Jogos no ano de {ano_desejado} ---")
+
+    for titulo, dados in jogos.items():
+        
+        try:
+            data = datetime.strptime(dados["data"], "%d/%m/%Y")
+            ano_jogo = str(data.year)
+        except ValueError:
+            continue
+
+        if ano_jogo == ano_desejado:
+            encontrados[titulo] = dados
+
+    if encontrados:
+        for titulo, dados in encontrados.items():
+            mostrar_lista()
+    
+    else:
+        print(f"Nenhum jogo encontrado para o ano de {ano_desejado}")

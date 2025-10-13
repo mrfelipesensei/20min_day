@@ -1,4 +1,4 @@
-from funcoes import adicionar_jogo, listar_jogos, buscar_por_titulo, buscar_por_dev
+from funcoes import adicionar_jogo, listar_jogos, buscar_por_titulo, buscar_por_dev, buscar_por_ano
 
 while True:
     print("\n--- CATÁLOGO DE GAMES ---")
@@ -22,7 +22,7 @@ while True:
     elif escolha == "4":
         buscar_por_dev()
     elif escolha == "5":
-        print("Chama a função buscar_por_ano()")
+        buscar_por_ano()
     elif escolha == "6":
         print("Chama a função alterar_dados()")
     elif escolha == "7":
