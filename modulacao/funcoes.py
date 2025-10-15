@@ -11,8 +11,11 @@ def carregar_dados():
             return {}
     return {}
 
+def salvar_dados():
+    with open("jogos.json","w",encoding="utf-8") as arquivo:
+        json.dump(jogos, arquivo, indent=4, ensure_ascii=False)
 
-jogos = {}
+jogos = carregar_dados()
 
 def pergunta_titulo():
 
