@@ -190,6 +190,18 @@ def buscar_por_ano():
     else:
         print(f"Nenhum jogo encontrado para o ano de {ano_desejado}")
 
+def alterar_dev(nome):
+    while True:
+        novo_dev = pergunta_dev()
+
+        jogos[nome] = {
+            "desenvolvedora" : novo_dev
+        }
+        salvar_dados()
+        print(f"A desenvolvedora foi alterada para {novo_dev}")
+        break
+
+
 def alterar_dados():
 
     nome = pergunta_titulo()
@@ -205,7 +217,7 @@ def alterar_dados():
         escolha = input("\nDigite sua opção: ")
 
         if escolha == "1":
-            print("alterar_dev()")
+            alterar_dev(nome)
         elif escolha == "2":
             print("alterar_data()")
         elif escolha == "3":
