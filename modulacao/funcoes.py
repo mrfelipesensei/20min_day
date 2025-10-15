@@ -189,3 +189,34 @@ def buscar_por_ano():
         mostrar_lista(encontrados)
     else:
         print(f"Nenhum jogo encontrado para o ano de {ano_desejado}")
+
+def alterar_dados():
+
+    nome = pergunta_titulo()
+
+    if nome in jogos:
+        print("\n --- MENU DE ALTERAÇÕES ---")
+        print("1 - Alterar Desenvolvedora")
+        print("2 - Alterar Data")
+        print("3 - Alterar Plataforma")
+        print("4 - Deletar Jogo")
+        print("5 - Voltar ao Menu Inicial")
+    
+        escolha = input("\nDigite sua opção: ")
+
+        if escolha == "1":
+            print("alterar_dev()")
+        elif escolha == "2":
+            print("alterar_data()")
+        elif escolha == "3":
+            print("alterar_plat()")
+        elif escolha == "4":
+            print("deletar_jogo()")
+        elif escolha == "5":
+            print("Voltando ao Menu Inicial...")
+            return
+        else:
+            print("Opção inválida. Tente novamente.")
+    
+    elif nome not in jogos:
+        print(f"Jogo {nome} não cadastrado dentre os Jogos.")
