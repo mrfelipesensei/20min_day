@@ -1,4 +1,16 @@
 from datetime import datetime
+import json
+import os
+
+def carregar_dados():
+    if os.path.exists("jogos.json") and os.path.getsize("jogos.json") > 0:
+        try:
+            with open("jogos.json","r",encoding="utf-8") as arquivo:
+                return json.load(arquivo)
+        except json.JSONDecodeError:
+            return {}
+    return {}
+
 
 jogos = {}
 
