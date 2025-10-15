@@ -1,5 +1,9 @@
 {
     "Super Mario World": {
-        "desenvolvedora": "Super"
+        "desenvolvedora": "Nintendo",
+        "data": "21/11/1990",
+        "plataformas": [
+            "SNES"
+        ]
     }
 }

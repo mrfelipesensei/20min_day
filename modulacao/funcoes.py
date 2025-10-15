@@ -194,9 +194,7 @@ def alterar_dev(nome):
     while True:
         novo_dev = pergunta_dev()
 
-        jogos[nome] = {
-            "desenvolvedora" : novo_dev
-        }
+        jogos[nome]["desenvolvedora"] = novo_dev
         salvar_dados()
         print(f"A desenvolvedora foi alterada para {novo_dev}")
         break
